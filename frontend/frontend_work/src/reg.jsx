@@ -24,11 +24,7 @@ function Reg() {
         if(response.ok)
         {
             //перенаправить на ресурс x
-<<<<<<< Updated upstream
-            window.location.href = '/mainLabel' 
-=======
             setPage('mainLabel')
->>>>>>> Stashed changes
         }
         else
         {
