@@ -24,11 +24,15 @@ function Reg() {
         if(response.ok)
         {
             //перенаправить на ресурс x
+<<<<<<< Updated upstream
             window.location.href = '/mainLabel' 
+=======
+            setPage('mainLabel')
+>>>>>>> Stashed changes
         }
         else
         {
-            //тут надо с бека что бы пришла ошибка
+            //тут надо с бека что бы пришла ошибка решим что обрабатывать
         }
 
     })

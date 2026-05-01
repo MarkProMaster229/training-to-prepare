@@ -8,9 +8,29 @@ import Reg from './reg.jsx'
 function App() {
   const [count, setCount] = useState(0)
 
+  let pageContent
+  if (page === 'register')
+  {
+    pageContent = <Reg setPage={setPage} />
+  }
+  else if (page === 'mainLabel')
+  {
+    pageContent = <Main setPage={setPage} />
+  }
+
+  else
+  {
+    pageContent = <div>This YOUR mistake</div>
+  }
   return (
     <>
+<<<<<<< Updated upstream
       <Reg />
+=======
+<div>
+  {pageContent}
+</div>
+>>>>>>> Stashed changes
     </>
   )
 }
