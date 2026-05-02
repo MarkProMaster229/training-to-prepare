@@ -4,7 +4,8 @@ import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './reg.css'
 
-function Reg() {
+
+function Reg({setPage}) {
   const [count, setCount] = useState(0)
   
   const [nameUser, setNameUser] = useState('')
@@ -24,7 +25,7 @@ function Reg() {
         if(response.ok)
         {
             //перенаправить на ресурс x
-            setPage('mainLabel')
+            setPage('MainLabel')
         }
         else
         {

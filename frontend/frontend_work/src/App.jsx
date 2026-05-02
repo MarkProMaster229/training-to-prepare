@@ -4,33 +4,34 @@ import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './App.css'
 import Reg from './reg.jsx'
+import MainLabel from './MainLabel.jsx'
 
 function App() {
   const [count, setCount] = useState(0)
-
+  const [page, setPage] = useState('register')
   let pageContent
   if (page === 'register')
   {
     pageContent = <Reg setPage={setPage} />
   }
-  else if (page === 'mainLabel')
+  else if (page === 'MainLabel')
   {
-    pageContent = <Main setPage={setPage} />
+    pageContent = <MainLabel setPage={setPage} />
   }
 
+  else if (page === 'communication')
+  {
+    pageContent = <Communication setPage={setPage}/>
+  }
   else
   {
     pageContent = <div>This YOUR mistake</div>
   }
   return (
     <>
-<<<<<<< Updated upstream
-      <Reg />
-=======
 <div>
   {pageContent}
 </div>
->>>>>>> Stashed changes
     </>
   )
 }
