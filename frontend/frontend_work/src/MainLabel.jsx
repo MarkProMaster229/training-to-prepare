@@ -3,12 +3,14 @@ import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './MainLabel.css'
+import Communication from './Communication.jsx'
 
-function MainLabel({setPage}){
+function MainLabel({nameUser}){
     const [topic, settopic] = useState('')
+    let Content
 
     const communication = () =>{
-        settopic('communication')
+        settopic('Communication')
     }
     const Book = () => {
         settopic('book')
@@ -16,6 +18,14 @@ function MainLabel({setPage}){
     const developer = () => {
         settopic('developer')
     }
+
+
+    if (topic === 'Communication')
+    {
+        Content  = <Communication settopic={settopic} nameUser={nameUser} />
+    }
+
+
     
     return (
     <>
@@ -24,6 +34,9 @@ function MainLabel({setPage}){
             <button onClick={communication}> общение </button>
             <button onClick={Book}> книги </button>
             <button onClick={developer}> разработка </button>
+        </div>
+        <div>
+            {Content}
         </div>
 
 
@@ -35,3 +48,4 @@ function MainLabel({setPage}){
 
 }
 export default MainLabel
+

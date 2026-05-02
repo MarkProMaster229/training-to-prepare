@@ -5,10 +5,9 @@ import heroImg from './assets/hero.png'
 import './reg.css'
 
 
-function Reg({setPage}) {
+function Reg({setPage, setNameUser, nameUser}) {
   const [count, setCount] = useState(0)
   
-  const [nameUser, setNameUser] = useState('')
   const [passUser, setpassUser] = useState('')
 
   const Up_for_regist = () => {

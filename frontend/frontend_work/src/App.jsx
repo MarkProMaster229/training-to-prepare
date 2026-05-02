@@ -9,19 +9,15 @@ import MainLabel from './MainLabel.jsx'
 function App() {
   const [count, setCount] = useState(0)
   const [page, setPage] = useState('register')
+  const [nameUser, setNameUser] = useState('')
   let pageContent
   if (page === 'register')
   {
-    pageContent = <Reg setPage={setPage} />
+    pageContent = <Reg setPage={setPage} nameUser={nameUser} setNameUser={setNameUser} />
   }
   else if (page === 'MainLabel')
   {
-    pageContent = <MainLabel setPage={setPage} />
-  }
-
-  else if (page === 'communication')
-  {
-    pageContent = <Communication setPage={setPage}/>
+    pageContent = <MainLabel setPage={setPage} nameUser={nameUser} />
   }
   else
   {
