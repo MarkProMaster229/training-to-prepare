@@ -4,7 +4,7 @@ import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './MainLabel.css'
 import Communication from './Communication.jsx'
-
+import Book from './Book.jsx'
 function MainLabel({nameUser}){
     const [topic, settopic] = useState('')
     let Content
@@ -12,7 +12,7 @@ function MainLabel({nameUser}){
     const communication = () =>{
         settopic('Communication')
     }
-    const Book = () => {
+    const Book5 = () => {
         settopic('book')
     }
     const developer = () => {
@@ -22,7 +22,11 @@ function MainLabel({nameUser}){
 
     if (topic === 'Communication')
     {
-        Content  = <Communication settopic={settopic} nameUser={nameUser} />
+        Content  = <Communication nameUser={nameUser} />
+    }
+    else if(topic === 'book')
+    {
+        Content = <Book  nameUser={nameUser}/>
     }
 
 
@@ -32,7 +36,7 @@ function MainLabel({nameUser}){
     <div>
         <div className='select_topic'>
             <button onClick={communication}> общение </button>
-            <button onClick={Book}> книги </button>
+            <button onClick={Book5}> книги </button>
             <button onClick={developer}> разработка </button>
         </div>
         <div>
