@@ -50,9 +50,11 @@ function renderMessage(){
         <>
 <div>
     <div className='laberFor' > 
-        <h2>введите свое сообщение для публикации на форуме</h2>
+        <h2>ты перестанешь чувствовать вкус еды. Но будешь жрать потому что так надо.</h2>
         <h2>ваш nickname привлекателен {nameUser}</h2>
         {renderMessage()}
+    </div>
+    <div className='promise'>
         <input type='text' value={message} onChange={(e) => setMessage(e.target.value)}/>
         <button onClick={upload_to_the_server}>я готов нести ответственность за свои поступки</button>
     </div>
