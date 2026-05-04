@@ -88,5 +88,39 @@ def chekMeBook():
     data = request.get_json()
     print(data)
     return jsonify({"message": "Успешно"}), 200
+
+
+@app.route('/serverGETDeveloper', methods=['GET'])
+def uploadDeveloper():
+    print("chekme")
+    return jsonify({
+        'mess': [
+            {
+                'user_name': "память",
+                'message': "ты не помнишь свои детские дни рождения, их помнит только тот, кого ты забыл",
+                'data_ser': "01.08.1994"
+            },
+            {
+                'user_name': "возраст",
+                'message': "ты заметил, что кости болят по утрам, и это только начало",
+                'data_ser': "30.08.1986"
+            },
+            {
+                'user_name': "дыхание",
+                'message': "пока ты читаешь это, кто-то делает свой последний вдох, и однажды им будешь ты",
+                'data_ser': "прямо сейчас"
+            }
+        ]
+    })
+
+@app.route('/serverDeveloper', methods=['POST'])
+def chekMeDeveloper():
+    print("im Work!")
+    data = request.get_json()
+    print(data)
+    return jsonify({"message": "Успешно"}), 200
+
+
+
 if __name__ == '__main__':
     app.run(debug=True)

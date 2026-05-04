@@ -5,17 +5,18 @@ import heroImg from './assets/hero.png'
 import './MainLabel.css'
 import Communication from './Communication.jsx'
 import Book from './Book.jsx'
+import Developer from './Developer.jsx'
 function MainLabel({nameUser}){
     const [topic, settopic] = useState('')
     let Content
 
-    const communication = () =>{
+    const communicationFun = () =>{
         settopic('Communication')
     }
-    const Book5 = () => {
+    const BookFun = () => {
         settopic('book')
     }
-    const developer = () => {
+    const developerFun = () => {
         settopic('developer')
     }
 
@@ -28,6 +29,10 @@ function MainLabel({nameUser}){
     {
         Content = <Book  nameUser={nameUser}/>
     }
+    else if (topic === 'developer')
+    {
+        Content = <Developer nameUser={nameUser}/>
+    }
 
 
     
@@ -35,9 +40,9 @@ function MainLabel({nameUser}){
     <>
     <div>
         <div className='select_topic'>
-            <button onClick={communication}> общение </button>
-            <button onClick={Book5}> книги </button>
-            <button onClick={developer}> разработка </button>
+            <button onClick={communicationFun}> общение </button>
+            <button onClick={BookFun}> книги </button>
+            <button onClick={developerFun}> разработка </button>
         </div>
         <div>
             {Content}
