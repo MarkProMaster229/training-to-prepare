@@ -1,6 +1,6 @@
 import os
 from dotenv import load_dotenv
-from models import UsersChats, ChatTalk, AnswersTopic,UsersForum, Topics
+from models import UsersChats, ChatTalk, AnswersTopic,UsersForum, Topics,Base
 from sqlalchemy import select, create_engine, func,Engine,exists,delete
 from sqlalchemy.orm import Session,joinedload
 from sqlalchemy.engine import URL
@@ -44,14 +44,14 @@ def existUser(session:Session,nick:str):
     userStat = select(exists().where(UsersForum.nickname == nick))
     return session.execute(userStat).scalar()
 
-def addUser(name:str,nick:str,passwd:str):
+def addUser(nick:str,passwd:str):
     
     with Session(engine) as session:
         if not existUser(session,nick):  
             try:
                 pswd_hash = hashPassword(passwd) 
 
-                new_user = UsersForum(name=name,nickname=nick,password=pswd_hash) 
+                new_user = UsersForum(name="",nickname=nick,password=pswd_hash) 
                 session.add(new_user)
                 session.commit()
                 return True
@@ -59,12 +59,13 @@ def addUser(name:str,nick:str,passwd:str):
                 session.rollback()
                 print(e)
                 return False
-    
+        else:
+            return autorizationUser() 
     return False
 
-def autorizationUser(nick:str,passwd:str):
+def autorizationUser(nick:str,passwd:str,session:Session):
     
-    with Session(engine) as session:
+    #with Session(engine) as session:
         au_user = select(UsersForum).where(UsersForum.nickname == nick )
         user =  session.execute(au_user).scalar_one_or_none()
 
@@ -174,8 +175,14 @@ def get_all_topic():
 
 if __name__ == "__main__":
     connectDatabase()
-    rT = addUser("Володя","volodka","123")
-    print(autorizationUser("volodka","123"))
+    Base.metadata.create_all(engine)
+
+
+    # rT = addUser("Володя","volodka","123")
+    # print(autorizationUser("volodka","123"))
+
+
+
     
 
 
